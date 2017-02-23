@@ -13,31 +13,12 @@
 <body>
 
 
-<h2>Список пользователей</h2>
+<h2>Сайт обьявлений!</h2>
 
-<a href="/registration">Регистрация</a>
+<a href="/registration">Регистрация</a> <br>
+<a href="/login">Авторизация</a> <br>
 
 
-
-
-<h3>Users</h3>
-
-<c:if test="${!empty userList}">
-    <table class="data">
-        <tr>
-            <th>Логин</th>
-            <th>Пароль</th>
-        </tr>
-        <c:forEach items="${userList}" var="user">
-            <tr>
-                <td>${user.login}</td>
-                <td>${user.password}</td>
-                <td>${user.email}</td>
-                <td>${user.phone}</td>
-            </tr>
-        </c:forEach>
-    </table>
-</c:if>
 
 </body>
 </html>

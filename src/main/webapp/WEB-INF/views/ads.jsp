@@ -26,15 +26,10 @@
 <h3>Обьявления!</h3>
 <c:if test="${!empty listAd}">
     <table class="data">
-        <tr>
-            <th>Логин</th>
-            <th>Пароль</th>
-        </tr>
         <c:forEach items="${listAd}" var="ad">
             <tr>
                 <td><a href="/ad/${ad.id}">${ad.name}</a></td>
                 <td>${ad.price}</td>
-                <td>${ad.info}</td>
                 <td>${ad.info}</td>
             </tr>
         </c:forEach>
