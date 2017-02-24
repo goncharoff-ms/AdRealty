@@ -19,7 +19,7 @@
 <body>
 
 
-<h2>Список пользователей</h2>
+<h2>Введите данные вашего аккаунта!</h2>
 
 <a href="/index">Назад</a>
 
@@ -49,8 +49,7 @@
         Phone
     </form:label>
     <form:input path="phone"/> <br>
-
-
+    
     <input type="submit" value="GO"/>
 </form:form>
 

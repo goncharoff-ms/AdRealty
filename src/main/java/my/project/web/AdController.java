@@ -1,5 +1,6 @@
 package my.project.web;
 
+import my.project.domain.Ad;
 import my.project.service.interfaces.AdService;
 import org.aspectj.lang.annotation.SuppressAjWarnings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,11 @@ public class AdController {
     public String allAd(Model modelMap) {
         modelMap.addAttribute("listAd", adService.listAd());
         return "ads";
+    }
+
+    @RequestMapping(value = "/ad/new", method = RequestMethod.GET)
+    public String formNewAd(Model model) {
+        model.addAttribute("ad", new Ad());
+        return "registrationAd";
     }
 }

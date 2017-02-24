@@ -1,7 +1,6 @@
 package my.project.web;
 
 
-import my.project.dao.RoleDao;
 import my.project.domain.User;
 import my.project.service.interfaces.SecurityService;
 import my.project.service.interfaces.UserService;
@@ -38,20 +37,20 @@ public class UserController {
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registration(Model model) {
         model.addAttribute("user", new User());
-        return "registration";
+        return "registrationUser";
     }
 
 
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String addContact(@ModelAttribute("user") User user,
+    public String addUser(@ModelAttribute("user") User user,
                              BindingResult bindingResult,
                              Model model) {
 
         userValidator.validate(user, bindingResult);
 
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "registrationUser";
         }
 
         user.setRoleId(1L);

@@ -15,16 +15,16 @@
 
 <h2>Список всех объявлений<h2>
 
-<a href="/registration">Регистрация</a>
-<br>
-<a href="/login">Авторизация</a>
-<br>
-<b style="float: right">${pageContext.request.userPrincipal.name}</b>
+    <a href="/registration">Регистрация</a>
+    <br>
+    <a href="/login">Авторизация</a>
+    <br>
+    <b style="float: right">${pageContext.request.userPrincipal.name}</b>
 
 
 
-<h3>Обьявления!</h3>
-<c:if test="${!empty listAd}">
+    <h3>Обьявления!</h3>
+    <c:if test="${!empty listAd}">
     <table class="data">
         <c:forEach items="${listAd}" var="ad">
             <tr>
@@ -34,7 +34,7 @@
             </tr>
         </c:forEach>
     </table>
-</c:if>
+    </c:if>
 
 </body>
 </html>
