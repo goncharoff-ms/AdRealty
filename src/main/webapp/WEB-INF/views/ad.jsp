@@ -15,16 +15,11 @@
 
 <h2>Список всех объявлений<h2>
 
-    <a href="/registration">Регистрация</a>
-    <br>
-    <a href="/login">Авторизация</a>
-    <br>
-    <b style="float: right">${pageContext.request.userPrincipal.name}</b>
-
+    <a href="/ad"></a>
 
 
     <h3>Обьявления!</h3>
-    <c:if test="${!empty listAd}">
+    <c:if test="${!empty }">
     <table class="data">
         <c:forEach items="${listAd}" var="ad">
             <tr>

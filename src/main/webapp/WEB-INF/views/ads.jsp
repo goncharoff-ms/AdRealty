@@ -19,6 +19,8 @@
 <br>
 <a href="/login">Авторизация</a>
 <br>
+<a href="/ad/new">Добавить своё объявление</a>
+
 <b style="float: right">${pageContext.request.userPrincipal.name}</b>
 
 
