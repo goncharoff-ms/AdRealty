@@ -44,7 +44,7 @@
     </form:label>
     <form:input  class="form-control" path="price" /> <br>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрировать</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Создать объявление</button>
 </form:form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

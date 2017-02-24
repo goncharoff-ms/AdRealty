@@ -48,6 +48,11 @@ public class AdServiceImpl implements AdService {
     }
 
     @Override
+    public Ad findById(Long id) {
+        return adDao.findOne(id);
+    }
+
+    @Override
     @Transactional
     public Set<Ad> findByPrice(Integer minPrice) {
         // TODO: 24.02.17  Дописать реализацию!

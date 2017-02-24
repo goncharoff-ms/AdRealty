@@ -8,28 +8,20 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <title>Пользователи</title>
+    <title>${ad.name}</title>
 </head>
 <body>
 
 
-<h2>Список всех объявлений<h2>
-
-    <a href="/ad"></a>
-
-
-    <h3>Обьявления!</h3>
-    <c:if test="${!empty }">
-    <table class="data">
-        <c:forEach items="${listAd}" var="ad">
-            <tr>
-                <td><a href="${pageContext}/ad/${ad.id}">${ad.name}</a></td>
-                <td>${ad.price}</td>
-                <td>${ad.info}</td>
-            </tr>
-        </c:forEach>
-    </table>
-    </c:if>
+<a href="/ad">Всё обьявления</a>
+<b style="float: right">${pageContext.request.userPrincipal.name}</b>
+<h2>${ad.name}<h2>
+    <h3>${ad.info}</h3>
+    <h3>${ad.price}</h3>
+    <h3>Данные владельца</h3>
+    <h3>${owner.name}</h3>
+    <h3>${owner.email}</h3>
+    <h3>${owner.phone}</h3>
 
 </body>
 </html>

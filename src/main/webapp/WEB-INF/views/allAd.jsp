@@ -30,7 +30,7 @@
     <table class="data">
         <c:forEach items="${listAd}" var="ad">
             <tr>
-                <td><a href="${pageContext}/ad/${ad.id}">${ad.name}</a></td>
+                <td><a href="/ad/${ad.id}">${ad.name}</a></td>
                 <td>${ad.price}</td>
                 <td>${ad.info}</td>
             </tr>

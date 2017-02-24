@@ -15,6 +15,7 @@ public interface AdService {
     void removeAd(Long id);
     List<Ad> listAd();
     Ad updateAd(Ad ad);
+    Ad findById(Long id);
     Set<Ad> findByPrice(Integer minPrice);
     Set<Ad> findByName(String name);
 }
