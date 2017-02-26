@@ -12,8 +12,18 @@
 </head>
 <body>
 
-
 <a href="/ad">Всё обьявления</a>
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+    <a href="/ad/new">Добавить своё объявление</a>
+    <form id="logoutForm" method="POST" action="/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+    <h4 class="text-right"> ${pageContext.request.userPrincipal.name} |
+        <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
+</c:if>
+
+
 <b style="float: right">${pageContext.request.userPrincipal.name}</b>
 <h2>${ad.name}<h2>
     <h3>${ad.info}</h3>
@@ -22,6 +32,5 @@
     <h3>${owner.name}</h3>
     <h3>${owner.email}</h3>
     <h3>${owner.phone}</h3>
-
 </body>
 </html>

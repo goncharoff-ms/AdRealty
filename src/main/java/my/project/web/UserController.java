@@ -58,7 +58,7 @@ public class UserController {
 
         securityService.autoLogin(user.getLogin(), user.getPassword());
 
-        return "redirect:/welcome";
+        return "redirect:/ad";
     }
 
 
@@ -93,12 +93,12 @@ public class UserController {
 
     @RequestMapping("/index")
     public String home(Map<String, Object> map) {
-        return "index";
+        return "redirect:/ad";
     }
 
     @RequestMapping("/")
     public String reHome(Map<String, Object> map) {
-        return "redirect:/index";
+        return "redirect:/ad";
     }
 
 

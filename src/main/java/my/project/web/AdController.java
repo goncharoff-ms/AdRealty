@@ -56,9 +56,9 @@ public class AdController {
         return "redirect:/ad";
     }
 
-    @RequestMapping(value = "/${id}", method = RequestMethod.GET)
-    public String showAd(@PathVariable("id") Long id, Model model) {
-        Ad nowAd = adService.findById(id);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String showAd(@PathVariable("id") String id, Model model) {
+        Ad nowAd = adService.findById(Long.valueOf(id));
         model.addAttribute("ad", nowAd);
         model.addAttribute("owner", userService.findById(nowAd.getUser_id()));
         return "ad";

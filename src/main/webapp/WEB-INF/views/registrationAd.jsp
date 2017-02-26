@@ -25,7 +25,17 @@
 
 <h2>Объявление!</h2>
 
-<a href="/index">Назад</a>
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+    <a href="/ad/new">Добавить своё объявление</a>
+    <form id="logoutForm" method="POST" action="/logout">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+    </form>
+
+    <h4 class="text-right"> ${pageContext.request.userPrincipal.name} |
+        <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
+</c:if>
+
+<a href="/ad">Всё обьявления</a>
 
 <form:form class="form-signin" method="post" action="/ad/new" modelAttribute="ad">
 
