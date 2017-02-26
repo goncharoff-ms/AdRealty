@@ -7,12 +7,23 @@
 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <title>Пользователи</title>
     <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            padding: 50px 50px;
+        }
+        div {
+            margin-left:auto;
+            margin-right:auto;
+            background-color: #e8e8e8;
+        }
+    </style>
 </head>
 <body>
 
@@ -49,15 +60,13 @@
 
         <h3>Обьявления!</h3>
         <c:if test="${!empty listAd}">
-            <table class="data">
                 <c:forEach items="${listAd}" var="ad">
-                    <tr>
-                        <td><a href="/ad/${ad.id}">${ad.name}</a></td>
-                        <td>${ad.price}</td>
-                        <td>${ad.info}</td>
-                    </tr>
+                    <div class="hero-unit center-block">
+                        <h2><a href="/ad/${ad.id}">${ad.name}</a></h2>
+                        <p>${ad.price}</p>
+                        <p class="text-info">${ad.info}</p>
+                    </div>
                 </c:forEach>
-            </table>
         </c:if>
 
 

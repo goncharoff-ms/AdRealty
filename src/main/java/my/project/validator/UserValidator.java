@@ -16,6 +16,9 @@ public class UserValidator implements Validator {
     protected UserService userService;
 
 
+
+
+
     @Override
     public boolean supports(Class<?> aClass) {
         return User.class.equals(aClass);
@@ -39,6 +42,10 @@ public class UserValidator implements Validator {
         if (user.getPassword().length() < 5 || user.getPassword().length() > 32) {
             errors.rejectValue("password", "Size.userForm.password");
         }
+
+
+
+
 
 
     }
