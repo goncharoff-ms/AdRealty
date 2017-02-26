@@ -3,6 +3,8 @@ package my.project.validator;
 
 import my.project.domain.User;
 import my.project.service.interfaces.UserService;
+import my.project.validator.supporting.EmailValidator;
+import my.project.validator.supporting.LoginValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -15,6 +17,11 @@ public class UserValidator implements Validator {
     @Autowired
     protected UserService userService;
 
+    @Autowired
+    private EmailValidator emailValidator;
+
+    @Autowired
+    private LoginValidator loginValidator;
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -40,6 +47,13 @@ public class UserValidator implements Validator {
             errors.rejectValue("password", "Size.userForm.password");
         }
 
+        if (!emailValidator.validate(user.getEmail())) {
+            errors.rejectValue("email", "NotCorrected.userForm.email");
+        }
+
+        if (!loginValidator.validate(user.getLogin())) {
+            errors.rejectValue("login", "NotCorrected.userForm.login");
+        }
 
     }
 }

@@ -30,7 +30,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = userDao.findByLogin(s);
-        System.out.println(s);
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
         grantedAuthorities.add(new SimpleGrantedAuthority(roleDao.findOne(user.getRoleId()).getName()));

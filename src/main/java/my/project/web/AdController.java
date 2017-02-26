@@ -3,6 +3,8 @@ package my.project.web;
 import my.project.domain.Ad;
 import my.project.service.interfaces.AdService;
 import my.project.service.interfaces.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/ad")
 public class AdController {
+
+    private static Logger logger = LoggerFactory.getLogger(AdController.class);
 
     @Autowired
     private AdService adService;
@@ -49,7 +53,7 @@ public class AdController {
     public String addNewAd(@ModelAttribute("ad") Ad ad,
                            BindingResult bindingResult,
                            Model model) {
-
+        logger.info("new ad: " + ad.getName());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         ad.setUser_id(userService.findByLogin(authentication.getName()).getId());
         adService.addAd(ad);
