@@ -23,6 +23,9 @@ public class UserValidator implements Validator {
     @Autowired
     private LoginValidator loginValidator;
 
+
+
+
     @Override
     public boolean supports(Class<?> aClass) {
         return User.class.equals(aClass);
@@ -54,6 +57,10 @@ public class UserValidator implements Validator {
         if (!loginValidator.validate(user.getLogin())) {
             errors.rejectValue("login", "NotCorrected.userForm.login");
         }
+
+
+
+
 
     }
 }
