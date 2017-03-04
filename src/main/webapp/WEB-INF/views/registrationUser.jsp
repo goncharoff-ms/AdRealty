@@ -28,11 +28,12 @@
 <a href="/index">Назад</a>
 
 <form:form class="form-signin" method="post" action="/registration" commandName="user" modelAttribute="user">
-
     <form:label path="login">
         Login
     </form:label>
-    <form:input class="form-control" path="login"/> <br>
+    <form:input class="form-control" path="login"/>
+    <form:errors cssClass="has-error" path="login"/>
+    <br>
 
     <form:label path="password">
         Password
@@ -59,6 +60,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 </body>
 </html>
