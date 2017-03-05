@@ -14,6 +14,7 @@ public interface AdService {
     void addAd(Ad ad);
     void removeAd(Long id);
     List<Ad> listAd();
+    List<Ad> sortedByIdListAd();
     Ad updateAd(Ad ad);
     Ad findById(Long id);
     Set<Ad> findByPrice(Integer minPrice);

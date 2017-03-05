@@ -39,7 +39,7 @@ public class AdController {
      */
     @RequestMapping(method = RequestMethod.GET)
     public String allAd(Model modelMap) {
-        modelMap.addAttribute("listAd", adService.listAd());
+        modelMap.addAttribute("listAd", adService.sortedByIdListAd());
         return "allAd";
     }
 

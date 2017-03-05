@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created 24.02.17.
@@ -40,7 +38,20 @@ public class AdServiceImpl implements AdService {
     public List<Ad> listAd() {
         return adDao.findAll();
     }
-    
+
+    @Override
+    public List<Ad> sortedByIdListAd() {
+        List<Ad> req = listAd();
+        Collections.sort(req, new Comparator<Ad>() {
+            @Override
+            public int compare(Ad ad1, Ad ad2) {
+                return ad2.getId().compareTo(ad1.getId());
+            }
+        });
+        return req;
+        // TODO: 05.03.17 !!!!!!!
+    }
+
     @Override
     @Transactional
     public Ad updateAd(Ad ad) {
