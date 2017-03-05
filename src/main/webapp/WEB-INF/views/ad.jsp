@@ -24,13 +24,14 @@
         <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
 </c:if>
 
+<p class="text-right">Просмотров:${ad.numberShow + 1}</p>
 
-<h2>${ad.name}<h2>
-    <h3>${ad.info}</h3>
-    <h3>${ad.price}</h3>
-    <h3>Данные владельца</h3>
-    <h3>${owner.name}</h3>
-    <h3>${owner.email}</h3>
-    <h3>${owner.phone}</h3>
+<div class="page-header center-block panel-group">${ad.name}</div>
+    <p>${ad.info}</p>
+    <p>${ad.price}</p>
+    <p>Данные владельца</p>
+    <p>${owner.name}</p>
+    <p>${owner.email}</p>
+    <p>${owner.phone}</p>
 </body>
 </html>

@@ -35,13 +35,12 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         User user = (User)o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "Required");
-        if (user.getLogin().length() < 5 || user.getLogin().length() > 32) {
-            errors.rejectValue("login", "Size.userForm.username");
+        if (!loginValidator.validate(user.getLogin())) {
+            errors.rejectValue("login", "NotCorrected.userForm.login");
         }
 
         if (userService.findByLogin(user.getLogin()) != null) {
-            errors.rejectValue("login", "Duplicate.userForm.username");
+            errors.rejectValue("login", "Duplicate.userForm.login");
         }
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
@@ -54,9 +53,7 @@ public class UserValidator implements Validator {
             errors.rejectValue("email", "NotCorrected.userForm.email");
         }
 
-        if (!loginValidator.validate(user.getLogin())) {
-            errors.rejectValue("login", "NotCorrected.userForm.login");
-        }
+
 
 
 

@@ -56,6 +56,7 @@ public class AdController {
         logger.info("new ad: " + ad.getName());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         ad.setUser_id(userService.findByLogin(authentication.getName()).getId());
+        ad.setNumberShow(0);
         adService.addAd(ad);
         return "redirect:/ad";
     }
@@ -63,8 +64,10 @@ public class AdController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String showAd(@PathVariable("id") String id, Model model) {
         Ad nowAd = adService.findById(Long.valueOf(id));
+        nowAd.setNumberShow(nowAd.getNumberShow()+1);
         model.addAttribute("ad", nowAd);
         model.addAttribute("owner", userService.findById(nowAd.getUser_id()));
+        adService.updateAd(nowAd);
         return "ad";
     }
 

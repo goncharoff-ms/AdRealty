@@ -12,14 +12,13 @@ public class Ad {
 
     }
 
-    public Ad(String name, Long user_id, String info, Integer price) {
+    public Ad(String name, Long user_id, String info, Integer price, Integer numberShow) {
         this.name = name;
         this.user_id = user_id;
         this.info = info;
         this.price = price;
+        this.numberShow = numberShow;
     }
-
-
 
     @Id
     @GeneratedValue
@@ -37,6 +36,9 @@ public class Ad {
 
     @Column(name = "price")
     private Integer price;
+
+    @Column(name = "number_show")
+    private Integer numberShow;
 
     public Long getId() {
         return id;
@@ -77,4 +79,14 @@ public class Ad {
     public void setPrice(Integer price) {
         this.price = price;
     }
+
+    public Integer getNumberShow() {
+        return numberShow;
+    }
+
+    public void setNumberShow(Integer numberShow) {
+        this.numberShow = numberShow;
+    }
+
+
 }

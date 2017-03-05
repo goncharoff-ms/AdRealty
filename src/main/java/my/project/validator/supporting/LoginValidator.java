@@ -16,7 +16,7 @@ public class LoginValidator {
     private Matcher matcher;
 
     private static final String LOGIN_PATTERN =
-            "^[_A-Za-z0-9]{5,20}$";
+            "^[_A-Za-z0-9-]{5,20}$";
 
     public LoginValidator() {
         pattern = Pattern.compile(LOGIN_PATTERN);
