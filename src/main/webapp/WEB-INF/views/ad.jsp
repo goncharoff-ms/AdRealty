@@ -26,7 +26,7 @@
 
 <p class="text-right">Просмотров:${ad.numberShow + 1}</p>
 
-<div class="page-header center-block panel-group">${ad.name}</div>
+<div class="page-header">${ad.name}</div>
     <p>${ad.info}</p>
     <p>${ad.price}</p>
     <p>Данные владельца</p>

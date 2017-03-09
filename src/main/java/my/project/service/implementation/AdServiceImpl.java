@@ -49,7 +49,6 @@ public class AdServiceImpl implements AdService {
             }
         });
         return req;
-        // TODO: 05.03.17 !!!!!!!
     }
 
     @Override

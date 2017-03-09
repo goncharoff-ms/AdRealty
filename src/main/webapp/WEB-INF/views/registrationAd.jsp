@@ -36,7 +36,7 @@
 
 <a href="/ad">Всё обьявления</a>
 
-<form:form class="form-signin" method="post" action="/ad/new" modelAttribute="ad">
+<form:form class="form-signin" method="post" action="/ad/new" modelAttribute="ad" enctype="multipart/form-data">
 
     <form:label path="name">
         Имя обьявления
@@ -53,6 +53,12 @@
     </form:label>
     <form:input  class="form-control" path="price" /> <br>
 
+    <label for
+    Фото
+    <input name="photo" type="file" class="btn btn-primary"/>
+
+
+    <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Создать объявление</button>
 </form:form>
 
