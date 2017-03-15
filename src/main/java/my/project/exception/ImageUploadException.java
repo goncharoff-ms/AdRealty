@@ -1,4 +1,4 @@
-package my.project.service.implementation;
+package my.project.exception;
 
 import java.io.IOException;
 

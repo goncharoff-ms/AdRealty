@@ -1,6 +1,6 @@
 package my.project.service.interfaces;
 
-import my.project.service.implementation.ImageUploadException;
+import my.project.exception.ImageUploadException;
 import org.springframework.web.multipart.MultipartFile;
 
 /**

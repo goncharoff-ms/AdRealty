@@ -47,6 +47,9 @@
 
 <tx:annotation-driven/>
 
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
 <jpa:repositories base-package="my.project.dao"/>
 
 </beans>

@@ -2,7 +2,7 @@ package my.project.web;
 
 import my.project.domain.Ad;
 import my.project.service.implementation.FileSystemServiceImpl;
-import my.project.service.implementation.ImageUploadException;
+import my.project.exception.ImageUploadException;
 import my.project.service.interfaces.AdService;
 import my.project.service.interfaces.UserService;
 import my.project.validator.supporting.ImageValidator;
@@ -60,7 +60,7 @@ public class AdController {
     public String addNewAd(@ModelAttribute("ad") Ad ad,
                            BindingResult bindingResult,
                            Model model,
-                           @RequestParam(value = "photo", required = false)
+                           @RequestParam("photo")
                            MultipartFile photo)  {
         logger.info("new ad: " + ad.getName());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

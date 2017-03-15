@@ -53,10 +53,10 @@
     </form:label>
     <form:input  class="form-control" path="price" /> <br>
 
-    <label for
+    <label for="photo">
     Фото
-    <input name="photo" type="file" class="btn btn-primary"/>
-
+    </label>
+    <input id="photo" name="photo" type="file" class="btn"/>
 
     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Создать объявление</button>
