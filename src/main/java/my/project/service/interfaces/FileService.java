@@ -10,4 +10,5 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public interface FileService {
     void saveImage(String image, MultipartFile multipartFile) throws ImageUploadException;
+    String getPathImageById(String id);
 }

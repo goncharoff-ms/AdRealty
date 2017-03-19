@@ -5,6 +5,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -32,7 +33,6 @@
 
 <h2>Список всех объявлений<h2>
 
-
         <c:if test="${pageContext.request.userPrincipal.name == null}">
             <a href="/registration">Регистрация</a>
             <br>
@@ -50,14 +50,7 @@
             <h4 class="text-right"> ${pageContext.request.userPrincipal.name} |
                 <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
         </c:if>
-
-
-
-
-
-
-
-
+            
         <h3>Обьявления!</h3>
         <c:if test="${!empty listAd}">
                 <c:forEach items="${listAd}" var="ad">

@@ -1,8 +1,8 @@
 package my.project.web;
 
 import my.project.domain.Ad;
-import my.project.service.implementation.FileSystemServiceImpl;
 import my.project.exception.ImageUploadException;
+import my.project.service.implementation.FileSystemServiceImpl;
 import my.project.service.interfaces.AdService;
 import my.project.service.interfaces.UserService;
 import my.project.validator.supporting.ImageValidator;
@@ -28,17 +28,21 @@ public class AdController {
 
     private static Logger logger = LoggerFactory.getLogger(AdController.class);
 
-    @Autowired
-    private AdService adService;
+    private final AdService adService;
+
+    private final UserService userService;
+
+    private final ImageValidator imageValidator;
+
+    private final FileSystemServiceImpl fileSystemService;
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
-    private ImageValidator imageValidator;
-
-    @Autowired
-    private FileSystemServiceImpl fileSystemService;
+    public AdController(AdService adService, UserService userService, ImageValidator imageValidator, FileSystemServiceImpl fileSystemService) {
+        this.adService = adService;
+        this.userService = userService;
+        this.imageValidator = imageValidator;
+        this.fileSystemService = fileSystemService;
+    }
 
 
     /**

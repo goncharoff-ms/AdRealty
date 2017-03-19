@@ -40,6 +40,9 @@
     </property>
 </bean>
 
+
+
+
 <bean id="transactionManager"
       class="org.springframework.orm.jpa.JpaTransactionManager">
     <property name="entityManagerFactory" ref="entityManagerFactory"/>
@@ -51,5 +54,6 @@
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
 
 <jpa:repositories base-package="my.project.dao"/>
+
 
 </beans>

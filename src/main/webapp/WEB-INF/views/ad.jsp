@@ -3,6 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
@@ -18,15 +19,18 @@
     <a href="/ad/new">Добавить своё объявление</a>
     <form id="logoutForm" method="POST" action="/logout">
         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <b class="text-right"> ${pageContext.request.userPrincipal.name} | </b>
+        <button type="submit">выйти</button>
     </form>
 
-    <h4 class="text-right"> ${pageContext.request.userPrincipal.name} |
-        <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
 </c:if>
 
 <p class="text-right">Просмотров:${ad.numberShow + 1}</p>
 
 <div class="page-header">${ad.name}</div>
+
+<img src="/images/44.jpg"/>
+
     <p>${ad.info}</p>
     <p>${ad.price}</p>
     <p>Данные владельца</p>
