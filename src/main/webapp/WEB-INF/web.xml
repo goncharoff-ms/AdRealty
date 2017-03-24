@@ -64,12 +64,6 @@
   </context-param>
 
 
-  <Context path="/"   allowCasualMultipartParsing="true" >
 
-    <Resources className="org.apache.catalina.webresources.StandardRoot">
-      <PostResources className="MyDirResourceSet" webAppMount="/dataFiles" />
-    </Resources>
-
-  </Context>
 
 </web-app>

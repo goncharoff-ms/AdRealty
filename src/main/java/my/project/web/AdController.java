@@ -1,11 +1,10 @@
 package my.project.web;
 
 import my.project.domain.Ad;
-import my.project.exception.ImageUploadException;
-import my.project.service.implementation.FileSystemServiceImpl;
+import my.project.domain.Image;
+import my.project.service.implementation.ImageService;
 import my.project.service.interfaces.AdService;
 import my.project.service.interfaces.UserService;
-import my.project.validator.supporting.ImageValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * Created 24.02.17.
@@ -32,16 +33,12 @@ public class AdController {
 
     private final UserService userService;
 
-    private final ImageValidator imageValidator;
 
-    private final FileSystemServiceImpl fileSystemService;
 
     @Autowired
-    public AdController(AdService adService, UserService userService, ImageValidator imageValidator, FileSystemServiceImpl fileSystemService) {
+    public AdController(AdService adService, UserService userService) {
         this.adService = adService;
         this.userService = userService;
-        this.imageValidator = imageValidator;
-        this.fileSystemService = fileSystemService;
     }
 
 
@@ -63,25 +60,15 @@ public class AdController {
     @RequestMapping(value = "/new", method = RequestMethod.POST)
     public String addNewAd(@ModelAttribute("ad") Ad ad,
                            BindingResult bindingResult,
-                           Model model,
-                           @RequestParam("photo")
-                           MultipartFile photo)  {
+                           Model model) throws IOException {
         logger.info("new ad: " + ad.getName());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         ad.setUser_id(userService.findByLogin(authentication.getName()).getId());
         ad.setNumberShow(0);
         adService.addAd(ad);
-
-        if (!photo.isEmpty()) {
-            if (imageValidator.validate(photo)) {
-                try {
-                    fileSystemService.saveImage(String.valueOf(ad.getId()), photo);
-                } catch (ImageUploadException e) {
-                    logger.error("Проблема загрузки изображения");
-                }
-            }
-        }
-        return "redirect:/ad";
+        model.addAttribute("adId", ad.getId());
+        model.addAttribute("image", new Image());
+        return "addImageForAd";
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

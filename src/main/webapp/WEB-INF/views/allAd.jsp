@@ -39,6 +39,8 @@
             <a href="/login">Авторизация</a>
             <br>
             <a href="/ad/new">Добавить своё объявление</a>
+
+            <a href="/admin/all/images">Все изображения</a>
         </c:if>
 
         <c:if test="${pageContext.request.userPrincipal.name != null}">
@@ -50,8 +52,11 @@
             <h4 class="text-right"> ${pageContext.request.userPrincipal.name} |
                 <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
         </c:if>
-            
-        <h3>Обьявления!</h3>
+
+
+
+
+            <h3>Обьявления!</h3>
         <c:if test="${!empty listAd}">
                 <c:forEach items="${listAd}" var="ad">
                     <div class="hero-unit center-block">

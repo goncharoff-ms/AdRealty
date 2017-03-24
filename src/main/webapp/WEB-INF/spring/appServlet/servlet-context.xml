@@ -3,6 +3,7 @@
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:mvc="http://www.springframework.org/schema/mvc"
 
              xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -10,11 +11,11 @@
 
 
     <!-- Разрешаем использование аннотаций Spring MVC (то есть @Controller и.т.д) -->
-    <annotation-driven />
+    <mvc:annotation-driven />
 
     <!-- Всю статику (изображения, css-файлы, javascript) положим в папку webapp/resources
         и замаппим их на урл вида /resources/** -->
-    <resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/**" location="/resources/" />
 
 
     <!-- Отображение видов на jsp-файлы, лежащие в папке /WEB-INF/views -->
@@ -24,17 +25,6 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
-    <!-- Configure the multipart resolver -->
-    <beans:bean id="multipartResolver"
-          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <beans:property name="maxUploadSize" value="100000" />
-        <beans:property name="uploadTempDir" ref="uploadDirResource" />
-    </beans:bean>
-
-    <beans:bean id="uploadDirResource"
-          class="org.springframework.core.io.FileSystemResource">
-        <beans:constructor-arg value="/home/max/dataBaseSave/images/"/>
-    </beans:bean>
 
     <!-- Файл с настройками контроллеров -->
     <beans:import resource="controllers.xml" />

@@ -36,25 +36,11 @@
 
 <a href="/ad">Всё обьявления</a>
 
-<form:form class="form-signin" method="post" action="/ad/new" modelAttribute="ad" enctype="multipart/form-data">
-
-    <form:label path="name">
-        Имя обьявления
-    </form:label>
-    <form:input class="form-control" path="name"/> <br>
-
-    <form:label path="info">
-        Описание
-    </form:label>
-    <form:textarea class="form-control" path="info"/> <br>
-
-    <form:label  path="price">
-        Цена
-    </form:label>
-    <form:input  class="form-control" path="price" /> <br>
-
+<form:form class="form-signin" method="post" action="/image/add/" commandName="image" enctype="multipart/form-data">
+    <input type="hidden" name="adId" value="${adId}">
     <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Создать объявление</button>
+    <input type="file" name="file" id="file" />
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Добавить фото</button>
 </form:form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
