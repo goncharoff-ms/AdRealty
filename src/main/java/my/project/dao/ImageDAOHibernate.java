@@ -4,6 +4,8 @@ package my.project.dao;
 
 import my.project.domain.Image;
 import org.hibernate.Hibernate;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.engine.jdbc.LobCreator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +18,19 @@ import java.sql.Blob;
 import java.util.List;
 
 @Repository
+@Transactional
 public class ImageDAOHibernate {
 
     private final SessionFactory sessionFactory;
+
+    private Session session;
 
     @Autowired
     public ImageDAOHibernate(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
+    @Transactional
     public void addImage(MultipartFile file, Long idAd) {
         Image image = new Image();
         Blob blob = null;
@@ -32,6 +38,12 @@ public class ImageDAOHibernate {
         image.setName(file.getOriginalFilename());
         image.setContentType(file.getContentType());
         image.setLength((int) file.getSize());
+
+        try {
+            session = sessionFactory.getCurrentSession();
+        } catch (HibernateException e) {
+            session = sessionFactory.openSession();
+        }
 
         try {
             LobCreator lobCreator = Hibernate.getLobCreator(sessionFactory.getCurrentSession());

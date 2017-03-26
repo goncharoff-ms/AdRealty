@@ -9,7 +9,7 @@ import java.util.Set;
  * @author Max Goncharov
  */
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
 
     @Id

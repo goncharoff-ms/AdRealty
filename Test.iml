@@ -40,10 +40,12 @@
         <setting name="provider-name" value="" />
         <datasource-mapping>
           <factory-entry name="aeroPunit" />
+          <factory-entry name="emp_proj" />
           <factory-entry name="entityManagerFactory" value="dataSource" />
+          <factory-entry name="noname-persistence.xml@119" />
           <factory-entry name="sessionFactory" value="dataSource" />
         </datasource-mapping>
-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/persistence.xml" />
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/persistence.xml" />
       </configuration>
     </facet>
   </component>
@@ -119,5 +121,6 @@
     <orderEntry type="library" name="Maven: org.jboss.spec.javax.interceptor:jboss-interceptors-api_1.1_spec:1.0.0.Beta1" level="project" />
     <orderEntry type="library" name="Maven: javax.annotation:jsr250-api:1.0" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.7.2" level="project" />
   </component>
 </module>

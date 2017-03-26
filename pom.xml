@@ -171,6 +171,12 @@
       <version>5.2.6.Final</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.7.2</version>
+    </dependency>
+
 
 
   </dependencies>

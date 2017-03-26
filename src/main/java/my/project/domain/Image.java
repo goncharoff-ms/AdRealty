@@ -5,7 +5,7 @@ import java.sql.Blob;
 
 
 @Entity
-@Table(name="images")
+@Table(name="image")
 public class Image {
 
     @Id

@@ -10,5 +10,6 @@
 
     <!-- Определяем папку, в которой будем искать веб компоненты (контроллеры)-->
     <context:component-scan base-package="my.project.web" />
+    <mvc:annotation-driven/>
 
 </beans>
