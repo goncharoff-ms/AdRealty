@@ -67,6 +67,7 @@
     <orderEntry type="library" name="mail" level="project" />
     <orderEntry type="library" name="activation1" level="project" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.7.2" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.10" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
