@@ -1,0 +1,208 @@
+/* LayerSlider Undecimo Skin */
+
+.ls-undecimo {
+	
+}
+
+.ls-undecimo .ls-bottom-nav-wrapper {
+	text-align: center;
+	margin: 10px auto 0px auto;
+	position: relative;
+}
+
+.ls-undecimo .ls-playvideo {
+	width: 75px;
+	height: 75px;
+	margin-left: -37px;
+	margin-top: -37px;
+}
+
+.ls-undecimo .ls-playvideo,
+.ls-undecimo .ls-nav-sides,
+.ls-undecimo .ls-bottom-slidebuttons a,
+.ls-undecimo .ls-nav-prev,
+.ls-undecimo .ls-nav-next,
+.ls-undecimo .ls-nav-start,
+.ls-undecimo .ls-nav-stop {
+	background-image: url(skin.png);
+	background-size: 600px 225px;
+	background-color: white;	
+}
+
+.ls-undecimo .ls-playvideo {
+	background-position: -300px -150px;
+}
+
+.ls-undecimo .ls-playvideo:hover,
+.ls-undecimo .ls-vpcontainer:hover .ls-playvideo {
+	background-position: -375px -150px;
+}
+
+.ls-undecimo .ls-nav-prev {
+	background-position: 0px 0px;
+}
+
+.ls-undecimo .ls-nav-prev:hover {
+	background-position: 0px -75px;
+}
+
+.ls-undecimo .ls-nav-next {
+	background-position: -150px 0px;
+}
+
+.ls-undecimo .ls-nav-next:hover {
+	background-position: -150px -75px;
+}
+
+.ls-undecimo .ls-nav-start {
+	background-position: -300px 0px;
+}
+
+.ls-undecimo .ls-nav-start:hover,
+.ls-undecimo .ls-nav-start-active {
+	background-position: -300px -75px;
+}
+
+.ls-undecimo .ls-nav-stop {
+	background-position: -450px 0px;
+}
+
+.ls-undecimo .ls-nav-stop:hover,
+.ls-undecimo .ls-nav-stop-active {
+	background-position: -450px -75px;
+}
+
+.ls-undecimo .ls-bottom-slidebuttons a {
+	background-position: 0px -150px;
+}
+
+.ls-undecimo .ls-bottom-slidebuttons a.ls-nav-active,
+.ls-undecimo .ls-bottom-slidebuttons a:hover {
+	background-position: -75px -150px;
+}
+
+.ls-undecimo .ls-nav-sideleft {
+	background-position: -150px -150px;	
+}
+
+.ls-undecimo .ls-nav-sideright {
+	background-position: -225px -150px;	
+}
+
+
+
+.ls-undecimo .ls-nav-prev,
+.ls-undecimo .ls-nav-next {
+	width: 25px;
+	height: 50px;
+	z-index: 10000;
+	top: 50%;
+	margin-top: -25px;	
+	position: absolute;
+	border: 4px solid #fafafa;
+	-webkit-box-shadow: 0 0px 0 4px rgba(0,0,0,.025), 0px -1px 1px rgba(0,0,0,.025);
+	   -moz-box-shadow: 0 0px 0 4px rgba(0,0,0,.025), 0px -1px 1px rgba(0,0,0,.025);
+	        box-shadow: 0 0px 0 4px rgba(0,0,0,.025), 0px -1px 1px rgba(0,0,0,.025);
+}
+
+.ls-undecimo .ls-nav-prev {
+	left: -45px;	
+}
+
+.ls-undecimo .ls-nav-next {
+	right: -45px;	
+}
+
+
+
+.ls-undecimo .ls-bottom-slidebuttons,
+.ls-undecimo .ls-bottom-slidebuttons a,
+.ls-undecimo .ls-nav-start,
+.ls-undecimo .ls-nav-stop,
+.ls-undecimo .ls-nav-sides {
+	height: 30px;
+}
+
+.ls-undecimo .ls-bottom-slidebuttons,
+.ls-undecimo .ls-bottom-slidebuttons a,
+.ls-undecimo .ls-nav-start,
+.ls-undecimo .ls-nav-stop,
+.ls-undecimo .ls-nav-sides {
+	top: -50px;
+	display: inline-block;
+}
+
+/* All Mobile Sizes (devices and browser)
+====================================================================== */
+@media only screen and (max-width: 767px) {
+	
+	.ls-undecimo .ls-bottom-slidebuttons,
+	.ls-undecimo .ls-bottom-slidebuttons a,
+	.ls-undecimo .ls-nav-start,
+	.ls-undecimo .ls-nav-stop,
+	.ls-undecimo .ls-nav-sides {
+		top: -50px;
+		display: none;
+	
+}
+
+.ls-undecimo .ls-nav-start,
+.ls-undecimo .ls-nav-stop {
+	width: 22px;
+}
+
+.ls-undecimo .ls-bottom-slidebuttons a {
+	width: 17px;
+}
+
+.ls-undecimo .ls-nav-sides {
+	width: 4px;
+}
+
+
+
+.ls-undecimo .ls-thumbnail-hover {
+	bottom: 50px;
+	padding: 4px;
+	margin-left: 1px;
+}
+
+.ls-undecimo .ls-thumbnail-hover-bg {
+	background: white;
+}
+
+.ls-undecimo .ls-thumbnail-hover span {
+	border: 5px solid white;
+	margin-left: -5px;
+}
+
+
+
+.ls-undecimo .ls-thumbnail {
+	top: -20px;
+}
+
+.ls-undecimo .ls-thumbnail-inner {
+	padding: 5px;
+	margin-left: -5px;
+	background: white;
+}
+
+.ls-undecimo .ls-thumbnail-slide a {
+	margin-right: 5px;
+}
+
+.ls-undecimo .ls-nothumb {
+	background: #eee;
+}
+
+
+
+.ls-undecimo .ls-above-thumbnails {
+	display: none;
+}
+
+.ls-undecimo .ls-below-thumbnails {
+	display: block;
+	margin-top: -20px;
+}

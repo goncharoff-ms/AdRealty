@@ -1,49 +1,35 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
-         pageEncoding="utf8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<%@ page contentType="text/html;charset=utf-8" %>
 
-<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <title>Новое объявление</title>
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-    <style>
-        form {
-            text-align:center;
-        }
-    </style>
+    <title>Image Manager</title>
 </head>
 <body>
 
+<h2>Image Manager</h2>
 
-<h2>Объявление!</h2>
-
-<c:if test="${pageContext.request.userPrincipal.name != null}">
-    <a href="/ad/new">Добавить своё объявление</a>
-    <form id="logoutForm" method="POST" action="/logout">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-    </form>
-
-    <h4 class="text-right"> ${pageContext.request.userPrincipal.name} |
-        <a onclick="document.forms['logoutForm'].submit()">Выйти из аккаунта</a></h4>
-</c:if>
-
-<a href="/ad">Всё обьявления</a>
-
-<form:form class="form-signin" method="post" action="/image/add/" commandName="image" enctype="multipart/form-data">
-    <input type="hidden" name="adId" value="${adId}">
-    <input type="hidden"  name="${_csrf.parameterName}"   value="${_csrf.token}"/>
-    <input type="file" name="file" id="file" />
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Добавить фото</button>
+<form:form method="post" action="/new/image" commandName="image" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <input type="hidden" name="adId" value="${adId}"/>
+            <td><form:label path="content">Image</form:label></td>
+            <td><input type="file" name="image" id="file"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Upload"/>
+            </td>
+        </tr>
+    </table>
 </form:form>
+<br>
+<br>
+<h3>All the images</h3>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+
 </body>
 </html>

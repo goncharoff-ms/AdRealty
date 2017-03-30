@@ -17,32 +17,37 @@ import java.util.*;
 @Service
 public class AdServiceImpl implements AdService {
 
+    private final AdDao adDao;
+
     @Autowired
-    private AdDao adDao;
+    public AdServiceImpl(AdDao adDao) {
+        this.adDao = adDao;
+    }
 
 
     @Override
     @Transactional
     public void addAd(Ad ad) {
-        adDao.saveAndFlush(ad);
+        adDao.addAd(ad);
     }
 
     @Override
     @Transactional
     public void removeAd(Long id) {
-        adDao.delete(id);
+        adDao.removeAd(id);
     }
 
     @Override
     @Transactional
-    public List<Ad> listAd() {
-        return adDao.findAll();
+    public List listAd() {
+        return adDao.listAd();
     }
 
     @Override
-    public List<Ad> sortedByIdListAd() {
-        List<Ad> req = listAd();
-        Collections.sort(req, new Comparator<Ad>() {
+    @Transactional
+    public List sortedByIdListAd() {
+        List req = listAd();
+        req.sort(new Comparator<Ad>() {
             @Override
             public int compare(Ad ad1, Ad ad2) {
                 return ad2.getId().compareTo(ad1.getId());
@@ -53,13 +58,13 @@ public class AdServiceImpl implements AdService {
 
     @Override
     @Transactional
-    public Ad updateAd(Ad ad) {
-        return adDao.saveAndFlush(ad);
+    public void updateAd(Ad ad) {
+         adDao.updateAd(ad);
     }
 
     @Override
     public Ad findById(Long id) {
-        return adDao.findOne(id);
+        return adDao.getAd(id);
     }
 
     @Override
@@ -72,6 +77,6 @@ public class AdServiceImpl implements AdService {
     @Override
     @Transactional
     public Set<Ad> findByName(String name) {
-        return adDao.findByName(name);
+        return null;
     }
 }

@@ -5,12 +5,9 @@
 
 <hibernate-configuration>
     <session-factory>
+        <mapping class="my.project.domain.Role" />
         <mapping class="my.project.domain.User" />
         <mapping class="my.project.domain.Image" />
         <mapping class="my.project.domain.Ad" />
-        <mapping class="my.project.domain.Role"/>
     </session-factory>
-
-
 </hibernate-configuration>
-

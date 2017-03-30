@@ -1,67 +1,70 @@
-<%@ page language="java" contentType="text/html; charset=utf8"
-         pageEncoding="utf8"%>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
+<div class="section-header">
 
+    <!-- start: Container -->
+    <div class="container">
 
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-    <title>Регистрация</title>
+        <h2>Создайте свой аккаунт</h2>
 
-    <style>
-        form {
-            text-align:center;
-        }
-    </style>
-</head>
-<body>
+    </div>
+    <!-- end: Container -->
 
+</div>
+<!-- end: Section Header -->
 
-<h2>Введите данные вашего аккаунта!</h2>
+<!--start: Container -->
+<div class="container">
 
-<a href="/index">Назад</a>
+    <!--start: Row-->
+    <div class="row-fluid">
 
-<form:form class="form-signin" method="post" action="/registration" commandName="user" modelAttribute="user">
-    <form:label path="login">
-        Login
-    </form:label>
-    <form:input class="form-control" path="login"/>
-    <form:errors cssClass="has-error" path="login"/>
-    <br>
+        <div class="lr-page span4 offset4">
 
-    <form:label path="password">
-        Password
-    </form:label>
-    <form:input class="form-control" type="password" path="password"/> <br>
+            <!--start: Register Box-->
+            <div id="register-box">
 
-    <form:label path="name">
-        Name
-    </form:label>
-    <form:input class="form-control" path="name" /> <br>
+                <!-- start: Row -->
+                <div class="row-fluid">
 
-    <form:label path="email">
-        Email
-    </form:label>
-    <form:input class="form-control" path="email" /> <br>
+                    <div id="login-form" class="span12">
 
-    <form:label path="phone">
-        Phone
-    </form:label>
-    <form:input class="form-control" path="phone"/> <br>
+                        <h4 style="text-align: center">Введите данные для своего аккаунта</h4>
 
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Зарегистрировать пользователя</button>
-</form:form>
+                        <form:form method="post" action="/registration" modelattribute="user" commandName="user">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+                            <div class="row-fluid">
 
-</body>
-</html>
+                                <form:input path="login" class="span12" id="user" type="text" value="" placeholder="login"/>
+
+                                <input class="span12" id="pass" name="password" type="password" value="" placeholder="password"/>
+
+                                <form:input path="password" class="span12" id="confpass" name="confpassword" type="password" value="" placeholder="confirm password"/>
+
+                                <form:input path="name" class="span12" id="name" name="name" type="text" value="" placeholder="name"/>
+
+                                <form:input path="email"  class="span12" id="email" name="email" type="text" value="" placeholder="email"/>
+
+                                <form:input path="phone" class="span12" id="phone" name="phone" type="text" value="" placeholder="+7(XXX)-XXX-XX-XX"/>
+
+                            </div>
+                            <div class="actions">
+                                <button type="submit" class="btn btn-large btn-success span12">Create Account!</button>
+                            </div>
+                        </form:form>
+
+                    </div>
+
+                </div>
+                <!-- end: Row -->
+
+            </div>
+            <!--end: Register Box-->
+
+        </div>
+
+    </div>
+    <!--end: Row -->
+
+</div>
+<!--end: Container-->

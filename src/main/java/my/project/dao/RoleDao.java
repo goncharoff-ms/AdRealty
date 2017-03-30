@@ -13,7 +13,6 @@ import org.springframework.data.repository.query.Param;
  * @autor Max Goncharov
  */
 
-@org.springframework.stereotype.Repository
 public interface RoleDao extends JpaRepository<Role, Long> {
 
 }

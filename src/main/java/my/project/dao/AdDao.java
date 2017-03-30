@@ -1,21 +1,51 @@
 package my.project.dao;
 
+
 import my.project.domain.Ad;
-import my.project.domain.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Set;
+import java.util.List;
 
-/**
- * Created 22.02.17.
- *
- * @autor Max Goncharov
- */
+
 @Repository
-public interface AdDao extends JpaRepository<Ad, Long> {
-    @Query("select a from User a where a.name = :name")
-    Set<Ad> findByName(@Param("name") String name);
+@Transactional
+public class AdDao {
+
+    private final SessionFactory sessionFactory;
+
+    @Autowired
+    public AdDao(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
+
+    public void addAd(Ad ad) {
+        sessionFactory.getCurrentSession().save(ad);
+    }
+
+    public List listAd() {
+        return sessionFactory.getCurrentSession().createQuery("from Ad").list();
+    }
+
+    public void removeAd(Long id) {
+        Ad ad = getAd(id);
+        if (null != ad) {
+            sessionFactory.getCurrentSession().delete(ad);
+        }
+    }
+
+
+
+    public Ad getAd(Long id) {
+        return (Ad) sessionFactory.getCurrentSession().get(Ad.class, id);
+    }
+
+    public void updateAd(Ad ad) {
+        sessionFactory.getCurrentSession().saveOrUpdate(ad);
+    }
+
+
 }

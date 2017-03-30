@@ -17,7 +17,7 @@
         <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login?error"
                     username-parameter="login" password-parameter="password"/>
 
-        <logout logout-success-url="/login?logout" />
+        <logout logout-url="/logout" logout-success-url="/ad" />
     </http>
 
     <authentication-manager alias="authenticationManager">

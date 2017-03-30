@@ -9,12 +9,11 @@
 
 <h2>Image Manager</h2>
 
-
 <form:form method="post" action="/addImage" commandName="image" enctype="multipart/form-data">
     <table>
         <tr>
             <td><form:label path="content">Image</form:label></td>
-            <td><input type="file" name="file" id="file"></td>
+            <td><input type="file" name="file" id="file"/></td>
         </tr>
         <tr>
             <td colspan="2">

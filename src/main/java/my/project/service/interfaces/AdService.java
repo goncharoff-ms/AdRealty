@@ -13,9 +13,9 @@ import java.util.Set;
 public interface AdService {
     void addAd(Ad ad);
     void removeAd(Long id);
-    List<Ad> listAd();
-    List<Ad> sortedByIdListAd();
-    Ad updateAd(Ad ad);
+    List listAd();
+    List sortedByIdListAd();
+    void updateAd(Ad ad);
     Ad findById(Long id);
     Set<Ad> findByPrice(Integer minPrice);
     Set<Ad> findByName(String name);

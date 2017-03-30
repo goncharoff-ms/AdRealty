@@ -1,0 +1,209 @@
+/* LayerSlider One Skin */
+
+
+
+.ls-one {
+	padding: 10px;
+}
+
+.ls-one .ls-bottom-nav-wrapper {
+	text-align: center;
+	margin: 10px auto 0px auto;
+	position: relative;
+}
+
+.ls-one .ls-playvideo {
+	width: 75px;
+	height: 75px;
+	margin-left: -37px;
+	margin-top: -37px;
+}
+
+.ls-one .ls-playvideo,
+.ls-one .ls-nav-sides,
+.ls-one .ls-bottom-slidebuttons a,
+.ls-one .ls-nav-prev,
+.ls-one .ls-nav-next,
+.ls-one .ls-nav-start,
+.ls-one .ls-nav-stop {
+	background-image: url(skin.png);	
+}
+
+/* Retina Display Hack
+=================================================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	
+	.ls-one .ls-playvideo,
+	.ls-one .ls-nav-sides,
+	.ls-one .ls-bottom-slidebuttons a,
+	.ls-one .ls-nav-prev,
+	.ls-one .ls-nav-next,
+	.ls-one .ls-nav-start,
+	.ls-one .ls-nav-stop {
+		background-image: url(skin@2x.png);	
+		background-size: 600px 225px;	
+	}
+	    
+}
+
+.ls-one .ls-playvideo {
+	background-position: -300px -150px;
+}
+
+.ls-one .ls-playvideo:hover,
+.ls-one .ls-vpcontainer:hover .ls-playvideo {
+	background-position: -375px -150px;
+}
+
+.ls-one .ls-nav-prev {
+	background-position: 0px 0px;
+	display: none !important;
+}
+
+.ls-one .ls-nav-prev:hover {
+	background-position: 0px -75px;
+	
+}
+
+.ls-one .ls-nav-next {
+	background-position: -150px 0px;
+	display: none !important;
+}
+
+.ls-one .ls-nav-next:hover {
+	background-position: -150px -75px;
+}
+
+.ls-one .ls-nav-start {
+	background-position: -300px 0px;
+	display: none !important;
+}
+
+.ls-one .ls-nav-start:hover,
+.ls-one .ls-nav-start-active {
+	background-position: -300px -75px;
+}
+
+.ls-one .ls-nav-stop {
+	background-position: -450px 0px;
+	display: none !important;
+}
+
+.ls-one .ls-nav-stop:hover,
+.ls-one .ls-nav-stop-active {
+	background-position: -450px -75px;
+}
+
+.ls-one .ls-bottom-slidebuttons a {
+	background-position: 0px -150px;
+}
+
+.ls-one .ls-bottom-slidebuttons a.ls-nav-active,
+.ls-one .ls-bottom-slidebuttons a:hover {
+	background-position: -75px -150px;
+}
+
+.ls-one .ls-nav-sideleft {
+	background-position: -150px -150px;	
+}
+
+.ls-one .ls-nav-sideright {
+	background-position: -225px -150px;	
+}
+
+
+
+.ls-one .ls-nav-prev,
+.ls-one .ls-nav-next {
+	width: 25px;
+	height: 50px;
+	z-index: 10000;
+	top: 50%;
+	margin-top: -25px;	
+	position: absolute;
+}
+
+.ls-one .ls-nav-prev {
+	left: -25px;	
+}
+
+.ls-one .ls-nav-next {
+	right: -25px;	
+}
+
+
+
+.ls-one .ls-bottom-slidebuttons,
+.ls-one .ls-bottom-slidebuttons a,
+.ls-one .ls-nav-start,
+.ls-one .ls-nav-stop,
+.ls-one .ls-nav-sides {
+	height: 30px;
+}
+
+.ls-one .ls-bottom-slidebuttons,
+.ls-one .ls-bottom-slidebuttons a,
+.ls-one .ls-nav-start,
+.ls-one .ls-nav-stop,
+.ls-one .ls-nav-sides {
+	display: inline-block;
+}
+
+.ls-one .ls-nav-start,
+.ls-one .ls-nav-stop {
+	width: 22px;
+}
+
+.ls-one .ls-bottom-slidebuttons a {
+	width: 17px;
+}
+
+.ls-one .ls-nav-sides {
+	width: 4px;
+}
+
+
+
+.ls-one .ls-thumbnail-hover {
+	bottom: 50px;
+	padding: 4px;
+	margin-left: 1px;
+}
+
+.ls-one .ls-thumbnail-hover-bg {
+}
+
+.ls-one .ls-thumbnail-hover span {
+	border: 5px solid white;
+	margin-left: -5px;
+}
+
+
+
+.ls-one .ls-thumbnail {
+	top: -20px;
+}
+
+.ls-one .ls-thumbnail-inner {
+	padding: 5px;
+	margin-left: -5px;
+}
+
+.ls-one .ls-thumbnail-slide a {
+	margin-right: 5px;
+}
+
+.ls-one .ls-nothumb {
+	background: #eee;
+}
+
+
+
+.ls-one .ls-above-thumbnails {
+	display: none;
+}
+
+.ls-one .ls-below-thumbnails {
+	display: block;
+	margin-top: -20px;
+}

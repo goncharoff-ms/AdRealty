@@ -32,19 +32,19 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void addUser(User user) {
-        userDao.save(user);
+        userDao.addUser(user);
     }
 
     @Override
     @Transactional
-    public List<User> listUsers() {
-        return userDao.findAll();
+    public List listUsers() {
+        return userDao.listUser();
     }
 
     @Override
     @Transactional
     public void removeUser(Long id) {
-        userDao.delete(id);
+        userDao.removeUser(id);
     }
 
     @Override
@@ -53,9 +53,11 @@ public class UserServiceImpl implements UserService {
         return userDao.findByLogin(login);
     }
 
+
     @Override
+    @Transactional
     public User findById(Long user_id) {
-        return userDao.findOne(user_id);
+        return userDao.getUser(user_id);
     }
 
 }
