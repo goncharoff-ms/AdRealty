@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=utf8" pageEncoding="utf8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -8,192 +8,140 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-
-    <!-- start: Meta -->
     <meta charset="utf-8">
-    <meta name="description" content="ONE Bootstrap Theme is incredibly powerfull and responsive template with modern and ONE design. ONE has many great features like: awesome LayerSlider 4 ($50), FlexSlider 2, 400+ Glyphicons PRO ($59), 200+ Font Awesome Icons, Social Icons, Charts, Retina Display Support and many. If you buy now ONE Bootstrap Theme you save $94."/>
-    <meta name="keywords" content="Bootstrap Theme, Bootstrap Template, Bootstrap, Responsive Theme, Responsive Template, Retina Display, ONE Design, Glyphicons, LayerSlider, FlexSlider, Font Awesome, Icons, Portfolio, Business, WrapBootstrap, Responsive" />
-    <meta name="author" content="Łukasz Holeczek from creativeLabs"/>
-    <!-- end: Meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="${contextPath}/resources/ico/favicon.ico">
 
-    <!-- start: Mobile Specific -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <!-- end: Mobile Specific -->
+    <title><tiles:insertAttribute name="title"/></title>
 
-    <!-- start: Facebook Open Graph -->
-    <meta property="og:title" content=""/>
-    <meta property="og:description" content=""/>
-    <meta property="og:type" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:image" content=""/>
-    <!-- end: Facebook Open Graph -->
+    <!-- Bootstrap core CSS -->
+    <link href="${contextPath}/resources/css/bootstrap.css" rel="stylesheet">
 
-    <!-- start: CSS -->
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-    <link href="${contextPath}/resources/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
-    <link href="${contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
-    <link href="${contextPath}/resources/css/style-responsive.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="${contextPath}/resources/css/style.css" rel="stylesheet">
+    <link href="${contextPath}/resources/css/font-awesome.min.css" rel="stylesheet">
 
-    <!--[if lt IE 9 ]>
-    <link href="/resources/css/styleIE.css" rel="stylesheet">
-    <![endif]-->
-    <!-- end: CSS -->
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <!-- start: Favicon and Touch Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="${contextPath}/resources/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="${contextPath}/resources/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="${contextPath}/resources/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="${contextPath}/resources/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="${contextPath}/resources/ico/favicon.png">
-    <!-- end: Favicon and Touch Icons -->
-    <title><tiles:insertAttribute name="title" ignore="true"/></title>
+
+    <script src="${contextPath}/resources/js/modernizr.js"></script>
 </head>
 
 <body>
 
-
-<header>
-    <!--start: Container -->
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-        <!--start: Navigation -->
-        <div class="navbar">
-            <div class="navbar-inner">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                <a class="brand" href="/index">ONE</a>
-                <c:if test="${pageContext.request.userPrincipal.name == null}">
-                    <div class="nav-collapse collapse">
-                        <ul class="nav scroll-nav">
-                            <li><a href="/index">Главная</a></li>
-                            <li><a href="/ad">Объявления</a></li>
-                            <li><a href="/login">Авторизация</a></li>
-                            <li><a href="/registration">Регистрация</a></li>
-                            <li><a href="/contacts">Контакты</a></li>
-                        </ul>
-                    </div>
-                </c:if>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/ad">AdRealty</a>
+        </div>
+        <div class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
                 <c:if test="${pageContext.request.userPrincipal.name != null}">
-
-                    <div class="nav-collapse collapse">
-                        <ul class="nav scroll-nav">
-                            <li><a href="/index">Главная</a></li>
-                            <li><a href="/ad">Объявления</a></li>
-                            <li><a href="/contacts">Контакты</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">${pageContext.request.userPrincipal.name}<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/myprofile">Личный кабинет</a></li>
-                                    <li><a href="/logout">Выйти</a></li>
-                                </ul>
-                            </li>
+                    <li><a href="/index">ГЛАВНАЯ</a></li>
+                    <li><a href="/ad">ОБЪЯВЛЕНИЯ</a></li>
+                    <li><a href="contact.html">КОНТАКТЫ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">${pageContext.request.userPrincipal.name}<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="blog.html">ПРОФИЛЬ</a></li>
+                            <li><a href="/logout">ВЫЙТИ</a></li>
                         </ul>
-                    </div>
+                    </li>
                 </c:if>
-            </div>
-        </div>
-        <!-- end: Navigation -->
+                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                    <li><a href="/index">ГЛАВНАЯ</a></li>
+                    <li><a href="/ad">ОБЪЯВЛЕНИЯ</a></li>
+                    <li><a href="contact.html">КОНТАКТЫ</a></li>
+                    <li><a href="/login">ВОЙТИ</a></li>
+                    <li><a href="/registration">РЕГИСТРАЦИЯ</a></li>
 
+                </c:if>
+            </ul>
+        </div><!--/.nav-collapse -->
     </div>
-    <!-- end: Container -->
-</header>
-
-<!-- start: Body -->
-<tiles:insertAttribute name="body"/>
-<!-- start: Body -->
-
-<!-- start: Footer -->
-<footer>
-    <!-- start: Container -->
-    <div class="container">
-        <!-- start: Row -->
-        <div class="row-fluid">
-            <!-- start: Footer Navigation -->
-            <div class="span12 nav">
-            </div>
-            <!-- end: Footer Navigation -->
-        </div>
-        <!-- end: Row -->
-        <!-- start: Row -->
-        <div class="row-fluid">
-        </div>
-        <!-- end: Row -->
-    </div>
-    <!-- end: Container  -->
-</footer>
-<!-- end: Footer -->
-<!-- start: Copyright -->
-<div id="copyright">
-    <!-- start: Container -->
-    <div class="container">
-        <!-- start: Row -->
-        <div class="row-fluid">
-
-            <!-- start: Owner -->
-            <div id="owner" class="span6">
-
-                &copy; 2013, <a href="http://bootstrapmaster.com" alt="Bootstrap Themes">creativeLabs</a>.
-                Designed by <a href="http://bootstrapmaster.com" alt="Bootstrap Templates">Bootstrap Master</a> in Poland
-                <img src="${contextPath}/resources/img/poland.png" class="img-retina" alt="Poland" style="margin-top:-4px">
-
-            </div>
-            <!-- end: Owner -->
-
-            <!-- start: Follow Us -->
-            <div id="follow" class="span6">
-                Follow Us:
-                <a href="#" class="social-dribbble"></a>
-                <a href="http://twitter.com/BootstrapMaster" class="social-twitter"></a>
-                <a href="#" class="social-flickr"></a>
-                <a href="http://facebook.com/BootstrapMaster" class="social-facebook"></a>
-                <a href="#" class="social-youtube"></a>
-            </div>
-            <!-- end: Follow Us -->
-        </div>
-        <!-- end: Row -->
-    </div>
-    <!-- end: Container -->
 </div>
-<!-- end: Copyright -->
-<!-- start: Java Script -->
+
+<!-- *****************************************************************************************************************
+ BLUE WRAP
+ ***************************************************************************************************************** -->
+<div id="blue">
+    <div class="container">
+        <div class="row">
+            <h3><tiles:insertAttribute name="title"/></h3>
+        </div><!-- /row -->
+    </div> <!-- /container -->
+</div><!-- /blue -->
+
+
+<tiles:insertAttribute name="body"/>
+
+
+
+<!-- *****************************************************************************************************************
+ FOOTER
+ ***************************************************************************************************************** -->
+<div id="footerwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4">
+                <h4>About</h4>
+                <div class="hline-w"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+            </div>
+            <div class="col-lg-4">
+                <h4>Social Links</h4>
+                <div class="hline-w"></div>
+                <p>
+                    <a href="#"><i class="fa fa-dribbble"></i></a>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                    <a href="#"><i class="fa fa-tumblr"></i></a>
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h4>Our Bunker</h4>
+                <div class="hline-w"></div>
+                <p>
+                    Some Ave, 987,<br/>
+                    23890, New York,<br/>
+                    United States.<br/>
+                </p>
+            </div>
+
+        </div><! --/row -->
+    </div><! --/container -->
+</div><! --/footerwrap -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="${contextPath}/resources/js/jquery-1.10.2.min.js"></script>
-<script src="${contextPath}/resources/js/jquery.isotope.min.js"></script>
-<script src="${contextPath}/resources/js/jquery.imagesloaded.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
-<script src="${contextPath}/resources/js/flexslider.js"></script>
-<script src="${contextPath}/resources/js/carousel.js"></script>
-<script src="${contextPath}/resources/js/jquery.fancybox.js"></script>
-<script src="${contextPath}/resources/js/twitter.js"></script>
-<script src="${contextPath}/resources/js/jquery.placeholder.min.js"></script>
+<script src="${contextPath}/resources/js/retina-1.1.0.js"></script>
+<script src="${contextPath}/resources/js/jquery.hoverdir.js"></script>
+<script src="${contextPath}/resources/js/jquery.hoverex.min.js"></script>
+<script src="${contextPath}/resources/js/jquery.prettyPhoto.js"></script>
+<script src="${contextPath}/resources/js/jquery.isotope.min.js"></script>
+<script src="${contextPath}/resources/js/custom.js"></script>
 
-<script src="${contextPath}/resources/js/jquery-easing-1.3.js"></script>
-<script src="${contextPath}/resources/js/jquery-transit-modified.js"></script>
-<script src="${contextPath}/resources/js/layerslider.transitions.js"></script>
-<script src="${contextPath}/resources/js/layerslider.kreaturamedia.jquery.js"></script>
-
-<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script src="${contextPath}/resources/js/jquery.gmap.min.js"></script>
-
-<script src="${contextPath}/resources/js/less-1.3.3.min.js"></script>
-
-<script defer="defer" src="${contextPath}/resources/js/modernizr.js"></script>
-<script defer="defer" src="${contextPath}/resources/js/custom.js"></script>
-<!-- end: Java Script -->
 
 </body>
 </html>
-
-
-
-
-
-
 

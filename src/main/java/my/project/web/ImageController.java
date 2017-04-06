@@ -61,7 +61,7 @@ public class ImageController {
 
         // Lookup Image by ImageId in database.
         // Do your "SELECT * FROM Image WHERE ImageID" thing.
-        Image image = imageService.getImageByOwnerId(imageId);
+        Image image = imageService.getImageByOwnerId(imageId).get(0);
 
         // Check if image is actually retrieved from database.
         if (image == null) {
@@ -103,6 +103,7 @@ public class ImageController {
             close(input);
         }
     }
+
 
     // Helper (can be refactored to public utility class)
     private static void close(Closeable resource) {

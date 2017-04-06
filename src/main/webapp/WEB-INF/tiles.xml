@@ -26,4 +26,11 @@
         <put-attribute name="body" value="/WEB-INF/views/ad.jsp" />
     </definition>
 
+    <definition name="registrationAd" extends="baseLayout">
+        <put-attribute name="title" value="Новое объявление" />
+        <put-attribute name="body" value="/WEB-INF/views/registrationAd.jsp" />
+    </definition>
+
+
+
 </tiles-definitions>

@@ -12,6 +12,7 @@
     http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
+
     <!-- Настройки бина dataSource будем хранить в отдельном файле -->
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
@@ -69,6 +70,9 @@
     </bean>
 
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="false"/>
+
+
+
 
 
     <jpa:repositories base-package="my.project.dao"/>

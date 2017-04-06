@@ -23,6 +23,7 @@ public class AdDao {
     }
 
     public void addAd(Ad ad) {
+
         sessionFactory.getCurrentSession().save(ad);
     }
 

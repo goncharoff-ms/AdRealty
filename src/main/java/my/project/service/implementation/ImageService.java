@@ -35,8 +35,10 @@ public class ImageService {
         imageDAO.removeImage(id);
     }
 
+
+
     @Transactional
-    public Image getImageByOwnerId(Long id) {
+    public List<Image> getImageByOwnerId(Long id) {
         return imageDAO.getImageByOwnerId(id);
     }
 

@@ -59,10 +59,10 @@ public class ImageDao {
         }
     }
 
-    public Image getImageByOwnerId(Long idOwner) {
+    public List<Image> getImageByOwnerId(Long idOwner) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Image where adId = :id");
         query.setParameter("id", idOwner);
-        return (Image) query.list().get(0);
+        return (List<Image>) query.list();
     }
 
     public Image getImage(Long id) {
