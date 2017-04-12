@@ -20,11 +20,15 @@ import java.util.Set;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
+
+    private final RoleDao roleDao;
 
     @Autowired
-    private RoleDao roleDao;
+    public UserDetailsServiceImpl(UserDao userDao, RoleDao roleDao) {
+        this.userDao = userDao;
+        this.roleDao = roleDao;
+    }
 
     @Override
     @Transactional(readOnly = true)

@@ -10,7 +10,7 @@
                 <form:form role="form" action="/registration" method="post" modelAttribute="user" commandName="user">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Логин: </label>
-                        <form:input path="login" type="text" class="form-control" id="exampleInputEmail1"/>
+                        <form:input path="login" type="text" min="5" max="15" maxlength="15" class="form-control" id="exampleInputEmail1"/>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail2">Пароль: </label>
@@ -24,12 +24,12 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Почта: </label>
-                        <form:input path="email" type="text" class="form-control" id="exampleInputEmail1"/>
+                        <form:input path="email" type="email" class="form-control" id="exampleInputEmail1"/>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputEmail1">Телефон: </label>
-                        <form:input path="phone" type="text" class="form-control" id="exampleInputEmail1"/>
+                        <form:input path="phone" type="tel" class="form-control" id="exampleInputEmail1"/>
                     </div>
 
                     <button type="submit" class="btn btn-theme">Создать</button>

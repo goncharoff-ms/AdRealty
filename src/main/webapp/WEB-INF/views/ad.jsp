@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=utf8"
          pageEncoding="utf8"%>
 
+<title>${ad.name}</title>
+
 <div class="container mtb">
     <div class="row">
 
@@ -10,7 +12,7 @@
             <! -- Blog Post 1 -->
 
             <p> <c:if test="${ad.haveImage == null}">
-                <img class="img-responsive" src="/resources/img/post03.jpg">
+                <img class="img-responsive" src="${pageContext.request.contextPath}/resources/img/post03.jpg">
                 </c:if>
 
                 <c:if test="${ad.haveImage == 1}">

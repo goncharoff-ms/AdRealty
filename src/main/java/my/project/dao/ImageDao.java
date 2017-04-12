@@ -17,17 +17,28 @@ import java.io.IOException;
 import java.sql.Blob;
 import java.util.List;
 
+/**
+ * DAO класс для {@link Image}
+ */
 @Repository
 @Transactional
 public class ImageDao {
 
     private final SessionFactory sessionFactory;
 
+    /**
+     * @param sessionFactory фабрика для {@link org.hibernate.Session}
+     */
     @Autowired
     public ImageDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Сохранить изображение в БД
+     * @param file само изображение
+     * @param idAd id объявления
+     */
     public void addImage(MultipartFile file, Long idAd) {
         Image image = new Image();
         Blob blob = null;
@@ -48,27 +59,48 @@ public class ImageDao {
         sessionFactory.getCurrentSession().save(image);
     }
 
+    /**
+     * @return спиок всех объявлений
+     */
     public List listImage() {
         return sessionFactory.getCurrentSession().createQuery("from Image").list();
     }
 
+    /**
+     * Удаляет изображение по id
+     * @param id изобрежение для удаления
+     */
     public void removeImage(Long id) {
-        Image image = this.getImage(id);
+        Image image = sessionFactory.getCurrentSession().get(Image.class, id);
         if (null != image) {
             sessionFactory.getCurrentSession().delete(image);
         }
     }
 
-    public List<Image> getImageByOwnerId(Long idOwner) {
+    /**
+     * Возвращает изображение по номеру объявления
+     * @param idOwner номер объявления
+     * @return изображение
+     */
+    public Image getImageByOwnerId(Long idOwner) {
         Query query = sessionFactory.getCurrentSession().createQuery("from Image where adId = :id");
         query.setParameter("id", idOwner);
-        return (List<Image>) query.list();
+        return (Image) query.list().get(0);
     }
 
+    /**
+     * Возвращает изображение по id
+     * @param id сам id
+     * @return нужное изображение
+     */
     public Image getImage(Long id) {
         return (Image) sessionFactory.getCurrentSession().get(Image.class, id);
     }
 
+    /**
+     * Обновить нужно изображение
+     * @param image само изображение
+     */
     public void updateImage(Image image) {
         sessionFactory.getCurrentSession().saveOrUpdate(image);
     }

@@ -6,10 +6,12 @@ import my.project.domain.Image;
 import my.project.service.implementation.ImageService;
 import my.project.service.interfaces.AdService;
 import my.project.service.interfaces.UserService;
+import my.project.validator.AdValidator;
 import org.hibernate.type.ShortType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -24,7 +26,7 @@ import java.sql.Date;
 /**
  * Created 24.02.17.
  * Контроллер для объявлений
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 @Controller
 @RequestMapping("/ad")
@@ -38,13 +40,19 @@ public class AdController {
 
     private final UserService userService;
 
+    private final AdValidator adValidator;
+
 
 
     @Autowired
-    public AdController(UserService userService, AdService adService, ImageService imageService) {
+    public AdController(@Qualifier("userServiceImpl") UserService userService,
+                        @Qualifier("adServiceImpl") AdService adService,
+                        @Qualifier("imageService") ImageService imageService,
+                        @Qualifier("adValidator") AdValidator adValidator) {
         this.userService = userService;
         this.adService = adService;
         this.imageService = imageService;
+        this.adValidator = adValidator;
     }
 
 
@@ -79,12 +87,18 @@ public class AdController {
                            BindingResult bindingResult,
                            @RequestParam("image") MultipartFile file,
                            Model model) throws IOException {
+
+        adValidator.validate(ad, bindingResult);
+
+        if (bindingResult.hasErrors()) {
+            return "registrationAd";
+        }
         logger.info("new ad: " + ad.getName());
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         ad.setUser_id(userService.findByLogin(authentication.getName()).getId());
+        ad.setDate(new Date(System.currentTimeMillis()));
         ad.setNumberShow(0);
         ad.setHaveImage(0);
-        ad.setDate(new Date(System.currentTimeMillis()));
         adService.addAd(ad);
         if(!file.isEmpty()) {
             imageService.addImage(file, ad.getId());

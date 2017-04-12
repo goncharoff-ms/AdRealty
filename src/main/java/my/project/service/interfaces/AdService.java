@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * Created 22.02.17.
  *
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 public interface AdService {
     void addAd(Ad ad);

@@ -8,11 +8,9 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 /**
- * Created 22.02.17.
- *
- * @autor Max Goncharov
+ * DAO интерфейс на JPA для {@link Role}
+ * там реализованны нужные для {@link Role}
+ * @author Max Goncharov
  */
-
 public interface RoleDao extends JpaRepository<Role, Long> {
-
 }

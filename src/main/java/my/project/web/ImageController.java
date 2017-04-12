@@ -5,6 +5,7 @@ import my.project.domain.Image;
 import my.project.service.implementation.ImageService;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -19,10 +20,12 @@ import java.sql.SQLException;
 @Controller
 public class ImageController {
 
-    private final int DEFAULT_BUFFER_SIZE = 10240; // 10KB.
+    private final ImageService imageService;
 
     @Autowired
-    private ImageService imageService;
+    public ImageController(@Qualifier("imageService") ImageService imageService) {
+        this.imageService = imageService;
+    }
 
     @RequestMapping("/manageAllImages")
     public String listImages(Model model){
@@ -61,7 +64,7 @@ public class ImageController {
 
         // Lookup Image by ImageId in database.
         // Do your "SELECT * FROM Image WHERE ImageID" thing.
-        Image image = imageService.getImageByOwnerId(imageId).get(0);
+        Image image = imageService.getImageByOwnerId(imageId);
 
         // Check if image is actually retrieved from database.
         if (image == null) {
@@ -73,6 +76,7 @@ public class ImageController {
 
         // Init servlet response.
         response.reset();
+        int DEFAULT_BUFFER_SIZE = 10240;
         response.setBufferSize(DEFAULT_BUFFER_SIZE);
         response.setContentType(image.getContentType());
         response.setHeader("Content-Length", String.valueOf(image.getLength()));

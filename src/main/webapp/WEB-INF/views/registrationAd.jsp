@@ -40,13 +40,13 @@
                 </div>
 
 
-                <div class="form-group">
+                <div id="streetBox" class="form-group">
                     <label for="7">Улица: </label>
                     <form:input path="street" type="text" class="form-control" id="7"/>
                 </div>
 
 
-                <div class="form-group">
+                <div id="numberHouseBox" class="form-group">
                     <label for="8">Номер дома(квартира) :</label>
                     <form:input path="houseNumber" type="text" class="form-control" id="8"/>
                 </div>
@@ -55,8 +55,6 @@
                     <label for="9">Площадь(кв.м) :</label>
                     <form:input path="sqare" type="text" class="form-control" id="9"/>
                 </div>
-
-
 
                 <div class="form-group">
                     <label for="3">Описание: </label>
@@ -69,7 +67,7 @@
                 </div>
 
 
-                <div class="form-group">
+                <div id="imageBox" class="form-group">
                     <label for="10">Фото: </label>
                     <input name="image" type="file" class="form-control btn btn-theme" id="10"/>
                 </div>

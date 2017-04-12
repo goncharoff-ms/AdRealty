@@ -19,6 +19,6 @@
                 </form>
         </div><! --/col-lg-8 -->
     </div><! --/row -->
-    <div class="row"><a class="btn btn-primary btn-lg">Нет аккаунта?</a></div>
+    <div class="row"><a class="btn btn-primary btn-block">Нет аккаунта?</a></div>
 </div><! --/container -->
 

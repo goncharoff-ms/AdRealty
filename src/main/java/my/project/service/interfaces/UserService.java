@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created 04.02.17.
  *
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 
 

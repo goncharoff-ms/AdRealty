@@ -13,17 +13,13 @@ import java.util.List;
 /**
  * Created 04.02.17.
  *
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 @Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
-
-    public UserServiceImpl() {
-
-    }
 
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;

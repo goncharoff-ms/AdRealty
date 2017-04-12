@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * Created 24.02.17.
  * Класс-сервис объявлений.
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 @Service
 public class AdServiceImpl implements AdService {
@@ -25,6 +25,10 @@ public class AdServiceImpl implements AdService {
     }
 
 
+    /**
+     *
+     * @param ad
+     */
     @Override
     @Transactional
     public void addAd(Ad ad) {
@@ -46,7 +50,7 @@ public class AdServiceImpl implements AdService {
     @Override
     @Transactional
     public List sortedByIdListAd() {
-        List req = listAd();
+        List req = adDao.listAd();
         req.sort(new Comparator<Ad>() {
             @Override
             public int compare(Ad ad1, Ad ad2) {
@@ -77,6 +81,7 @@ public class AdServiceImpl implements AdService {
     @Override
     @Transactional
     public Set<Ad> findByName(String name) {
+        // TODO: 08.04.17 Доделать для соритровки объявлений 
         return null;
     }
 }

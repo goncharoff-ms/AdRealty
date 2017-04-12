@@ -1,12 +1,13 @@
-(function($) {
+$("#typeAd").change(function(){
+    if ($(this).val() == "КУПЛЯ") {
+        $("#imageBox").hide(500);
+        $("#streetBox").hide(500);
+        $("#numberHouseBox").hide(500);
 
-// prettyPhoto
-	jQuery(document).ready(function(){
-		jQuery('a[data-gal]').each(function() {
-			jQuery(this).attr('rel', jQuery(this).data('gal'));
-		});  	
-		jQuery("a[data-rel^='prettyPhoto']").prettyPhoto({animationSpeed:'slow',theme:'light_square',slideshow:false,overlay_gallery: false,social_tools:false,deeplinking:false});
-	}); 
 
-		
-})(jQuery);
+    } else {
+        $("#imageBox").show(500);
+        $("#streetBox").show(500);
+        $("#numberHouseBox").show(500);
+    }
+});

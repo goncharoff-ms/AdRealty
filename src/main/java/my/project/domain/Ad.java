@@ -7,25 +7,52 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.util.Set;
 
+/**
+ * POJO класс для объялвний
+ */
 @Entity
 @Table(name = "ad")
 public class Ad {
 
+    /**
+     * пустой конструктор
+     */
     public Ad() {
 
     }
 
 
+    /**
+     * ID объявления
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
 
+    /**
+     * Дата подачи объявления
+     */
     @Column(name = "date_create")
     private Date date;
 
 
+    /**
+     * @param date дата подачи объявления
+     * @param name имя объявления
+     * @param user_id id владельца объявления
+     * @param info доп. информация
+     * @param price цена
+     * @param numberShow кол-во показов
+     * @param haveImage наличие изображения
+     * @param realty тип недивижимости
+     * @param typeAd тип объявления
+     * @param sity город
+     * @param street улица
+     * @param houseNumber номер дома
+     * @param sqare площадь
+     */
     public Ad(Date date, String name, Long user_id, String info, Integer price, Integer numberShow, Integer haveImage, String realty, String typeAd, String sity, String street, String houseNumber, Integer sqare) {
         this.date = date;
         this.name = name;
@@ -42,41 +69,79 @@ public class Ad {
         this.sqare = sqare;
     }
 
+    /**
+     * имя объявления
+     */
     @Column(name = "name")
     private String name;
 
+    /**
+     * id владельца объявления
+     */
     @Column(name = "user_id")
     private Long user_id;
 
+    /**
+     * доп.информация
+     */
     @Column(name = "info")
     private String info;
 
+    /**
+     * цена
+     */
     @Column(name = "price")
     private Integer price;
 
+    /**
+     * кол-во показов
+     */
     @Column(name = "number_show")
     private Integer numberShow;
 
+    /**
+     * наличие фото
+     */
     @Column(name = "is_have_image")
     private Integer haveImage;
 
+    /**
+     * тип недвижимости
+     */
     @Column(name = "realty")
     private String realty;
 
+    /**
+     * тип объявления
+     */
     @Column(name = "type_Ad")
     private String typeAd;
 
+    /**
+     * город
+     */
     @Column(name = "sity")
     private String sity;
 
+    /**
+     * улица
+     */
     @Column(name = "street")
     private String street;
 
+    /**
+     * номер дома
+     */
     @Column(name = "house_number")
     private String houseNumber;
 
+    /**
+     * площадь
+     */
     @Column(name = "sqare")
     private Integer sqare;
+
+    // setter`s and getter`s
 
     public String getRealty() {
         return realty;

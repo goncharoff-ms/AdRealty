@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created 21.02.17.
  *
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 
 @Controller

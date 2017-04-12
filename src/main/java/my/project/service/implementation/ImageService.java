@@ -3,6 +3,7 @@ package my.project.service.implementation;
 import my.project.dao.ImageDao;
 import my.project.domain.Image;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,7 +17,7 @@ public class ImageService {
     private final ImageDao imageDAO;
 
     @Autowired
-    public ImageService(ImageDao imageDAO) {
+    public ImageService(@Qualifier("imageDao") ImageDao imageDAO) {
         this.imageDAO = imageDAO;
     }
 
@@ -38,7 +39,7 @@ public class ImageService {
 
 
     @Transactional
-    public List<Image> getImageByOwnerId(Long id) {
+    public Image getImageByOwnerId(Long id) {
         return imageDAO.getImageByOwnerId(id);
     }
 

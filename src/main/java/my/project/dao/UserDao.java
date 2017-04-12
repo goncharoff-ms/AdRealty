@@ -12,36 +12,54 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Interface DAO for User
- * Created by alastor on 04.02.17.
+ * DAO класс для {@link User}
  * @author Max Goncharov
  */
 @Repository
 @Transactional
 public class UserDao {
 
+
     private final SessionFactory sessionFactory;
 
+    /**
+     * @param sessionFactory фабрика для {@link org.hibernate.Session}
+     */
     @Autowired
     public UserDao(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
+    /**
+     * Добавление нового пользователя
+     * @param user сам пользователь
+     */
     public void addUser(User user) {
         sessionFactory.getCurrentSession().save(user);
     }
 
+    /**
+     * @return спиок всех пользователей
+     */
     public List listUser() {
         return sessionFactory.getCurrentSession().createQuery("from User").list();
     }
 
+    /**
+     * @param id удаляет выбранного пользователя
+     */
     public void removeUser(Long id) {
-        User user = getUser(id);
+        User user = sessionFactory.getCurrentSession().get(User.class, id);
         if (null != user) {
             sessionFactory.getCurrentSession().delete(user);
         }
     }
 
+    /**
+     * Найти пользователя по логину
+     * @param login сам логин
+     * @return нужный пользователей
+     */
     public User findByLogin(String login) {
         Query query = sessionFactory.getCurrentSession().createQuery("from User where login = :flogin");
         query.setParameter("flogin", login);
@@ -52,10 +70,19 @@ public class UserDao {
         }
     }
 
+    /**
+     * Получить пользователя по id
+     * @param id cам id
+     * @return пользователя
+     */
     public User getUser(Long id) {
         return (User) sessionFactory.getCurrentSession().get(User.class, id);
     }
 
+    /**
+     * Обновить пользвателя
+     * @param user сам пользователь
+     */
     public void updateUser(User user) {
         sessionFactory.getCurrentSession().saveOrUpdate(user);
     }

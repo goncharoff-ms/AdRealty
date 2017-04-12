@@ -5,33 +5,54 @@ import javax.persistence.*;
 import java.util.Set;
 
 /**
- * pojo class
+ * POJO класс для пользователя
  * @author Max Goncharov
  */
 @Entity
 @Table(name = "user")
 public class User {
 
+    /**
+     * id пользователя
+     */
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * логин
+     */
     @Column(name = "login")
     private String login;
 
+    /**
+     * имя
+     */
     @Column(name = "name")
     private String name;
 
+    /**
+     * пароль
+     */
     @Column(name = "password")
     private String password;
 
+    /**
+     * телефон
+     */
     @Column(name = "phone")
     private String phone;
 
+    /**
+     * email
+     */
     @Column(name = "email")
     private String email;
 
+    /**
+     * id {@link Role}
+     */
     @Column(name = "role_id")
     private Long roleId;
 

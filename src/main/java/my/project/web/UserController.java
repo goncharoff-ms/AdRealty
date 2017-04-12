@@ -8,6 +8,7 @@ import my.project.validator.UserValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
@@ -27,19 +28,25 @@ import java.util.Map;
 /**
  * Created 06.02.17.
  *
- * @autor Max Goncharov
+ * @author Max Goncharov
  */
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
+
+    private final SecurityService securityService;
+
+    private final UserValidator userValidator;
 
     @Autowired
-    private SecurityService securityService;
-
-    @Autowired
-    private UserValidator userValidator;
+    public UserController(@Qualifier("userServiceImpl") UserService userService,
+                          @Qualifier("securityServiceImpl") SecurityService securityService,
+                          @Qualifier("userValidator") UserValidator userValidator) {
+        this.userService = userService;
+        this.securityService = securityService;
+        this.userValidator = userValidator;
+    }
 
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)

@@ -3,27 +3,25 @@ package my.project.validator;
 
 import my.project.domain.User;
 import my.project.service.interfaces.UserService;
-import my.project.validator.supporting.EmailValidator;
-import my.project.validator.supporting.LoginValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import java.util.regex.Pattern;
+
 @Component
 public class UserValidator implements Validator {
 
-    @Autowired
-    protected UserService userService;
+
+    private final UserService userService;
 
     @Autowired
-    private EmailValidator emailValidator;
-
-    @Autowired
-    private LoginValidator loginValidator;
-
-
+    public UserValidator(@Qualifier("userServiceImpl") UserService userService) {
+        this.userService = userService;
+    }
 
 
     @Override
@@ -35,7 +33,7 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         User user = (User)o;
 
-        if (!loginValidator.validate(user.getLogin())) {
+        if (!loginValidator(user.getLogin())) {
             errors.rejectValue("login", "NotCorrected.userForm.login");
         }
 
@@ -43,21 +41,27 @@ public class UserValidator implements Validator {
             errors.rejectValue("login", "Duplicate.userForm.login");
         }
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
+        //ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
 
         if (user.getPassword().length() < 5 || user.getPassword().length() > 32) {
             errors.rejectValue("password", "Size.userForm.password");
         }
 
-        if (!emailValidator.validate(user.getEmail())) {
+        if (!emailValidator(user.getEmail())) {
             errors.rejectValue("email", "NotCorrected.userForm.email");
         }
 
-
-
-
-
-
-
     }
+
+
+    private boolean emailValidator(String string) {
+        String emailPattern = "^[_A-Za-z0-9]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        return Pattern.compile(emailPattern).matcher(string).matches();
+    }
+
+    private boolean loginValidator(String s) {
+        String loginPattern = "^[_A-Za-z0-9-]{5,15}$";
+        return Pattern.compile(loginPattern).matcher(s).matches();
+    }
+
 }
