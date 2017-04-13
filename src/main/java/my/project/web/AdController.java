@@ -105,6 +105,7 @@ public class AdController {
             ad.setHaveImage(1);
             adService.updateAd(ad);
         }
+
         return "redirect:/ad/" + ad.getId();
     }
 

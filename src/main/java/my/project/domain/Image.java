@@ -4,30 +4,52 @@ import javax.persistence.*;
 import java.sql.Blob;
 
 
+/**
+ * POJO класс для изображений
+ */
 @Entity
 @Table(name="image")
 public class Image {
 
+    /**
+     * ID
+     */
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Integer id;
 
+    /**
+     * Имя файла
+     */
     @Column(name="name")
     private String name;
 
+    /**
+     * Тип содержимого
+     */
     @Column(name="contentType")
     private String contentType;
 
+    /**
+     * Размер файла
+     */
     @Column(name="lenght")
     private Integer length;
 
+    /**
+     * Blob содержимое файла
+     */
     @Column(name="content")
     @Lob
     private Blob content;
 
+    /**
+     * ID объявления
+     */
     @Column(name = "ad_id")
     private Long adId;
+
 
     public Integer getId() {
         return id;
@@ -68,7 +90,6 @@ public class Image {
     public void setContent(Blob content) {
         this.content = content;
     }
-
 
     public Long getAdId() {
         return adId;

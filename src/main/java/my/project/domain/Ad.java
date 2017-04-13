@@ -4,6 +4,7 @@ package my.project.domain;
 import org.hibernate.type.BooleanType;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Date;
 import java.util.Set;
 
@@ -37,37 +38,6 @@ public class Ad {
     @Column(name = "date_create")
     private Date date;
 
-
-    /**
-     * @param date дата подачи объявления
-     * @param name имя объявления
-     * @param user_id id владельца объявления
-     * @param info доп. информация
-     * @param price цена
-     * @param numberShow кол-во показов
-     * @param haveImage наличие изображения
-     * @param realty тип недивижимости
-     * @param typeAd тип объявления
-     * @param sity город
-     * @param street улица
-     * @param houseNumber номер дома
-     * @param sqare площадь
-     */
-    public Ad(Date date, String name, Long user_id, String info, Integer price, Integer numberShow, Integer haveImage, String realty, String typeAd, String sity, String street, String houseNumber, Integer sqare) {
-        this.date = date;
-        this.name = name;
-        this.user_id = user_id;
-        this.info = info;
-        this.price = price;
-        this.numberShow = numberShow;
-        this.haveImage = haveImage;
-        this.realty = realty;
-        this.typeAd = typeAd;
-        this.sity = sity;
-        this.street = street;
-        this.houseNumber = houseNumber;
-        this.sqare = sqare;
-    }
 
     /**
      * имя объявления
@@ -191,7 +161,7 @@ public class Ad {
         this.sqare = sqare;
     }
 
-    public int getHaveImage() {
+    public Integer getHaveImage() {
         return haveImage;
     }
 

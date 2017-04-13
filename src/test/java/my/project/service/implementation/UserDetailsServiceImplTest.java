@@ -75,7 +75,10 @@ public class UserDetailsServiceImplTest {
     @Test
     public void loadUserByUsername() throws Exception {
         Mockito.when(userDao.findByLogin("login")).thenReturn(user);
-        Mockito.when(roleDao.findOne(1L)).thenReturn(new Role(1L, "ROLE_USER"));
+        Role role = new Role();
+        role.setId(1L);
+        role.setName("ROLE_USER");
+        Mockito.when(roleDao.findOne(1L)).thenReturn(role);
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));

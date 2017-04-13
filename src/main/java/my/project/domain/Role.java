@@ -17,14 +17,6 @@ public class Role {
 
     }
 
-    /**
-     * @param id роли
-     * @param name имя роли
-     */
-    public Role(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
 
     /**
      * id роли
